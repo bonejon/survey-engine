@@ -1,6 +1,6 @@
 {
-  "name": "my-typescript-library",
-  "version": "1.0.0",
+  "name": "survey-engine",
+  "version": "1.0.3",
   "description": "A TypeScript library for various utilities.",
   "main": "dist/index.js",
   "scripts": {
@@ -15,7 +15,7 @@
     "library",
     "utilities"
   ],
-  "author": "Your Name",
+  "author": "Jon Bone",
   "license": "MIT",
   "devDependencies": {
     "@eslint/js": "^9.23.0",
