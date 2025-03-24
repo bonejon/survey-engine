@@ -7,7 +7,7 @@ export class SurveyEngine {
   private _currentQuestionIndex = 0;
   private _answers: SurveyAnswer[] = [];
 
-  get currentQuestion(): SurveyQuestion | undefined {
+  get currentQuestion(): SurveyQuestionBase | undefined {
     if (this._survey && this._currentQuestionIndex !== undefined) {
       return this._survey.questions[this._currentQuestionIndex];
     }
@@ -38,8 +38,14 @@ export class SurveyEngine {
 
   private getNextQuestion(answerValue: SurveyAnswerType): void {
     const currentQuestion = {...this.currentQuestion} as SurveyQuestionBase;
-    if (!currentQuestion.branchLogic) {
-      this._currentQuestionIndex++;
+    if (currentQuestion.branchLogic && this._survey) {
+      const logicBranch = currentQuestion.branchLogic.find((l) => l.answerValue === answerValue);
+      if (logicBranch) {
+        this._currentQuestionIndex = this._survey.questions.findIndex((q) => q.id === logicBranch.nextQuestionId);        
+        return;
+      }
     }
+    
+    this._currentQuestionIndex++;
   }
 }

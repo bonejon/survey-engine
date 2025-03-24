@@ -1,10 +1,10 @@
-import { SurveyQuestion } from "./question";
+import { SurveyQuestion, SurveyQuestionBase } from "./question";
 
 export interface Survey {
   id: string;
   title: string;
   description: string;
-  questions: SurveyQuestion[];
+  questions: SurveyQuestionBase[];
 }
 
 export interface SurveyResponse {
