@@ -32,6 +32,10 @@ jobs:
           scope: "@bonejon"
           always-auth: true
       - run: npm ci
+      - name: Update version in package.json
+        uses: maks-stupak/gh-action-bump-version@v7.1.5
+        with:
+          tag-prefix: "v"
       - run: npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.PUBLISH_GITHUB_TOKEN}}
