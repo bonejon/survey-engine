@@ -1,5 +1,5 @@
 import { SurveyAnswer, SurveyAnswerType } from "./models/answer";
-import { SurveyQuestion, SurveyQuestionBase } from "./models/question";
+import { SurveyQuestionBase } from "./models/question";
 import { Survey } from "./models/survey";
 
 export class SurveyEngine {
