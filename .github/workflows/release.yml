@@ -19,6 +19,8 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     permissions:
+      id-token: write
+      attestations: write
       packages: write
       contents: read
     steps:
@@ -30,6 +32,10 @@ jobs:
           scope: "@bonejon"
           always-auth: true
       - run: npm ci
-      - run: npm publish  --provenance --access public
+      - name: Attest
+        uses: actions/attest-build-provenance@v2
+        with:
+          subject-path: '${{ github.workspace }}/survey-engine'      
+      - run: npm publish --access public
         env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+          NODE_AUTH_TOKEN: ${{secrets.PUBLISH_GITHUB_TOKEN}}
