@@ -32,10 +32,6 @@ jobs:
           scope: "@bonejon"
           always-auth: true
       - run: npm ci
-      - name: Attest
-        uses: actions/attest-build-provenance@v2
-        with:
-          subject-path: '${{ github.workspace }}/survey-engine'      
-      - run: npm publish --access public
+      - run: npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.PUBLISH_GITHUB_TOKEN}}
