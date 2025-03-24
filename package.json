@@ -7,6 +7,7 @@
   "version": "1.0.3",
   "description": "A TypeScript library for various utilities.",
   "main": "dist/index.js",
+  "files": ["dist/**/*"],
   "scripts": {
     "build": "tsc",
     "test": "jest",
