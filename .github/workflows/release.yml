@@ -36,7 +36,7 @@ jobs:
         uses: HarmvZ/set-package-json-version-action@v0.2.5
         with:
           path: .
-          version: ${{ github.event.inputs.version }}
+          version: ${{ github.event.release.tag_name }}
       - run: npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.PUBLISH_GITHUB_TOKEN}}
