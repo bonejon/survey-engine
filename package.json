@@ -1,5 +1,9 @@
 {
   "name": "@bonejon/survey-engine",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bonejon/survey-engine.git"
+  },
   "version": "1.0.3",
   "description": "A TypeScript library for various utilities.",
   "main": "dist/index.js",
